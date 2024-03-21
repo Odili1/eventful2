@@ -1,0 +1,84 @@
+<%-include('partials/header')-%>
+
+
+<div class="container mt-5">
+    <form class="w-75 mt-5 mx-auto shadow p-4 mb-4 bg-white rounded p-5" action="/event/create" method="post">
+
+        <h2 class="mb-4">Create Event</h2>
+
+        <div class="mb-3 mt-3">
+          <label for="eventTitle" class="form-label">Event Title:</label>
+          <input type="text" class="form-control" id="eventTitle" placeholder="Enter eventTitle" name="eventTitle">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="eventDetails" class="form-label">Event Details:</label>
+          <textarea type="text" class="form-control" id="eventDetails" placeholder="Enter event details" name="eventDetails" rows="10"></textarea>
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="eventType" class="form-label">Event Type:</label>
+          <select name="eventType" id="eventType" aria-placeholder="Select event type...">
+            <optgroup >
+                <option value="" disabled>Select event type...</option>
+                <option value="Concerts">Concerts</option>
+                <option value="Online Events">Online Events</option>
+                <option value="Conferences">Conferences</option>
+                <option value="Corporate Events">Corporate Events</option>
+                <option value="Classes and Workshop">Classes and Workshop</option>
+                <option value="Festival $ Fairs">Festival $ Fairs</option>
+            </optgroup>
+          </select>
+        </div>
+    
+        <div class="mb-3 mt-3">
+          <label for="industry" class="form-label">Industry:</label>
+          <select name="industry" id="industry" aria-placeholder="Select industry...">
+            <optgroup >
+                <option value="" disabled>Select industry...</option>
+                <option value="music">Music</option>
+                <option value="Performing Arts">Performing Arts</option>
+                <option value="Business">Business/option>
+                <option value="Technology">Technology</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="slots" class="form-label">Slots:</label>
+          <input type="number" class="form-control" id="slots" placeholder="Enter slots" name="slots">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="address" class="form-label">Address:</label>
+          <input type="text" class="form-control" id="Address" placeholder="Enter Address" name="Address">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="city" class="form-label">City:</label>
+          <input type="text" class="form-control" id="city" placeholder="Enter city" name="city">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="country" class="form-label">Country:</label>
+          <input type="text" class="form-control" id="country" placeholder="Enter country" name="country">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="tags" class="form-label">Tags:</label>
+          <input type="text" class="form-control" id="tags" placeholder="Enter tags. Separate with space" name="tags">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="startDate" class="form-label">Start Date:</label>
+          <input type="datetime-local" class="form-control" id="startDate" placeholder="Enter startDate" name="startDate">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="endDate" class="form-label">End Date:</label>
+          <input type="datetime-local" class="form-control" id="endDate" placeholder="Enter endDate" name="endDate">
+        </div>
+        <div class="mb-3 mt-3">
+        <div class="mb-3 mt-3">
+          <label for="setReminder" class="form-label">Set Reminder Date:</label>
+          <input type="datetime-local" class="form-control" id="setReminder" placeholder="Enter setReminder" name="setReminder">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%-include('partials/footer')-%>

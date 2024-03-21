@@ -1,0 +1,58 @@
+<%-include('partials/header')-%>
+
+<% if (message) {%>
+    
+    <div class="alert alert-dark alert-dismissible fade show position-absolute w-100" role="alert">
+        <%=message%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<div class="container mt-5">
+    <form class="w-75 mt-5 mx-auto shadow p-4 mb-4 bg-white rounded p-5" action="/auth/signup" method="post">
+
+        <h2 class="mb-4">Signup</h2>
+
+        <div class="mb-3 mt-3">
+          <label for="firstname" class="form-label">Firstname:</label>
+          <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" name="firstname">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="lastname" class="form-label">Lastname:</label>
+          <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname" name="lastname">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+        </div>
+    
+        <div class="mb-3 mt-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="role" class="form-label">Role:</label>
+          <select name="role" id="role" aria-placeholder="Select role...">
+            <optgroup >
+                <option value="" disabled>Select role...</option>
+                <option value="event creator">Creator</option>
+                <option value="attendee">Attendee</option>
+            </optgroup>
+          </select>
+          <!-- <input type="email" class="form-control" id="role" placeholder="Enter Email" name="email"> -->
+        </div>
+    
+        <div class="mb-3">
+          <label for="pwd" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<%-include('partials/footer')-%>

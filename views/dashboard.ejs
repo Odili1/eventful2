@@ -1,0 +1,92 @@
+<%-include('partials/header')%>
+
+<div class="mb-5 invisible">ah</div>
+
+<div class="container">
+    <div class="d-flex justify-content-between w-100 mb-5">
+        <h2 class="fw-bold"><%= data.user.firstname%> <%= data.user.lastname%></h2>
+        <button type="submit" class="btn btn-success rounded "><a class="text-white" href="/new-story">Scan</a></button>
+    </div>
+    
+    <p class="mb-5">Event Analytics by</p>
+    
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#eventsCreated">Events Created (<%=data.events ? data.events.length : 0%>)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#ticketBought">Ticket Bought (<%=data.eventsByBought ? data.eventsByBought.length : 0%>)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#ticketScanned">Ticket Scanned (<%=data.eventsByScanned ? data.eventsByScanned.length : 0%>)</a>
+        </li>
+    </ul>
+    
+    <!-- Tab panes -->
+    <div class="tab-content mt-5">
+        <div class="tab-pane container active" id="eventsCreated">
+            <%if (data.events) {%>
+                <% data.events.forEach(function(event){%>
+                    <div class="border-bottom mb-5 pb-2 lh-0">
+                        <a href="/event/<%=event.id%>">
+                            <h4 class="fw-bold"><%= event.eventTitle %></h4>
+                            <p><%= event.eventDetails %></p>
+                            <div class="d-flex">
+                                <p class="me-2 fw=light">start date: <%= event.startDate %></p>
+                                <p>End Date: <%= event.endDate %></p>
+                            </div>
+                        </a>
+                    </div>
+                <%}) %>
+            <%} else { %>
+                <p><%= message%></p>
+                <a class="fst-italic text-decoration-underline" href="/create">create</a> an event or <a class="fst-italic text-decoration-underline" href="/">explore</a> on eventful
+            <%}%>
+        </div>
+        <div class="tab-pane container fade" id="ticketBought">
+            <%if (data.eventsByBought) {%>
+                <% data.eventsByBought.forEach(function(event){%>
+                    <div class="border-bottom mb-5 pb-2 lh-0">
+                        <a href="/event/<%=event.id%>">
+                            <h4 class="fw-bold"><%= event.eventTitle %></h4>
+                            <p><%= event.eventDetails %></p>
+                            <div class="d-flex">
+                                <p class="me-2 fw=light">start date: <%= event.startDate %></p>
+                                <p>End Date: <%= event.endDate %></p>
+                            </div>
+                        </a>
+                    </div>
+                <%}) %>
+            <%} else { %>
+                <p><%= message%></p>
+                <a class="fst-italic text-decoration-underline" href="/create">create</a> an event or <a class="fst-italic text-decoration-underline" href="/">explore</a> on eventful
+            <%}%>
+        </div>
+        <div class="tab-pane container fade" id="ticketScanned">
+            <%if (data.eventsByScanned) {%>
+                <% data.eventsByScanned.forEach(function(event){%>
+                    <div class="border-bottom mb-5 pb-2 lh-0">
+                        <a href="/event/<%=event.id%>">
+                            <h4 class="fw-bold"><%= event.eventTitle %></h4>
+                            <p><%= event.eventDetails %></p>
+                            <div class="d-flex">
+                                <p class="me-2 fw=light">start date: <%= event.startDate %></p>
+                                <p>End Date: <%= event.endDate %></p>
+                            </div>
+                        </a>
+                    </div>
+                <%}) %>
+            <%} else { %>
+                <p><%= message%></p>
+                <a class="fst-italic text-decoration-underline" href="/create">create</a> an event or <a class="fst-italic text-decoration-underline" href="/">explore</a> on eventful
+            <%}%>
+        </div>
+    </div>
+
+
+
+</div>
+
+<%-include('partials/footer')%>
